@@ -3,7 +3,7 @@ object DM: TDM
   Width = 637
   object Conexao: TFDConnection
     Params.Strings = (
-      'Database=C:\DB\SISTEMACLINICA.FDB'
+      'Database=C:\BD\SISTEMACLINICA.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Server=localhost'
@@ -162,6 +162,21 @@ object DM: TDM
       item
         Name = 'NOME'
         ParamType = ptInput
+      end>
+  end
+  object tdPacienteFiltroCpf: TFDQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'SELECT * FROM PACIENTE WHERE CPF LIKE :CPF')
+    Left = 144
+    Top = 184
+    ParamData = <
+      item
+        Name = 'CPF'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 14
+        Value = Null
       end>
   end
 end

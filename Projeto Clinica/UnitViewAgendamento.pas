@@ -44,36 +44,44 @@ uses unitDM;
 
 procedure TViewAgendamentos.Button1Click(Sender: TObject);
 begin
-
-  if filtroId.Checked = True then
-  begin
-    DM.tdAgendamento.Close;
-
-
-    DM.tdAgendamento.SQL.Text := ('SELECT * FROM AGENDAMENTO A INNER JOIN PACIENTE P' +
-    ' ON A.ID_PACIENTE = P.ID WHERE P.ID = :ID;');
-
-    DM.tdAgendamento.ParamByName('ID').AsInteger := StrToInt(txtFiltro.Text);
-
-    DM.tdAgendamento.Open;
-    if DM.tdAgendamento.IsEmpty then
+  if Trim(txtFiltro.Text) = '' then
     begin
-      ShowMessage('Nenhum Registro Encontrado')
+      ShowMessage('Escreva algo na caixa de texto antes de realizar a consulta!');
+      exit
+    end
+  else
+    begin
+
+    if filtroId.Checked = True then
+    begin
+      DM.tdAgendamento.Close;
+
+
+      DM.tdAgendamento.SQL.Text := ('SELECT * FROM AGENDAMENTO A INNER JOIN PACIENTE P' +
+      ' ON A.ID_PACIENTE = P.ID WHERE P.ID = :ID;');
+
+      DM.tdAgendamento.ParamByName('ID').AsInteger := StrToInt(txtFiltro.Text);
+
+      DM.tdAgendamento.Open;
+      if DM.tdAgendamento.IsEmpty then
+      begin
+        ShowMessage('Nenhum Registro Encontrado')
+      end;
     end;
-  end;
 
-  if filtroMedico.Checked = True then
-  begin
-    DM.tdAgendamento.Close;
-
-    DM.tdAgendamento.SQL.Text := ('SELECT * FROM AGENDAMENTO WHERE MEDICO LIKE :MEDICO');
-
-    DM.tdAgendamento.ParamByName('MEDICO').AsString := '%' + Trim(txtFiltro.Text) + '%';
-
-    DM.tdAgendamento.Open;
-    if DM.tdAgendamento.IsEmpty then
+    if filtroMedico.Checked = True then
     begin
-      ShowMessage('Nenhum Registro Encontrado')
+      DM.tdAgendamento.Close;
+
+      DM.tdAgendamento.SQL.Text := ('SELECT * FROM AGENDAMENTO WHERE MEDICO LIKE :MEDICO');
+
+      DM.tdAgendamento.ParamByName('MEDICO').AsString := '%' + Trim(txtFiltro.Text) + '%';
+
+      DM.tdAgendamento.Open;
+      if DM.tdAgendamento.IsEmpty then
+      begin
+        ShowMessage('Nenhum Registro Encontrado')
+      end;
     end;
   end;
 end;
@@ -88,8 +96,7 @@ procedure TViewAgendamentos.conexaoBanco;
 begin
   DM.tdAgendamento.Close;
 
-  DM.tdAgendamento.SQL.Text :=
-    'SELECT * FROM AGENDAMENTO';
+  DM.tdAgendamento.SQL.Text := ('SELECT * FROM AGENDAMENTO');
 
   DM.tdAgendamento.Open;
 end;
@@ -106,6 +113,7 @@ procedure TViewAgendamentos.filtroMedicoClick(Sender: TObject);
 begin
   if filtroMedico.Checked = True then
   begin
+    txtFiltro.NumbersOnly := False;
     lblFiltro.Caption := 'Buscar por Medico';
   end;
 end;

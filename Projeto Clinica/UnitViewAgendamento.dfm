@@ -29,9 +29,6 @@ object ViewAgendamentos: TViewAgendamentos
     Height = 40
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitTop = 1
-    ExplicitWidth = 447
     object SpeedButton1: TSpeedButton
       Left = 506
       Top = 1

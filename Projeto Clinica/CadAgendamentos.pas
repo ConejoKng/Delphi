@@ -114,7 +114,7 @@ begin
   if TryStrToInt(txtBusca.Text, id) then
     begin
       DM.tdPaciente.close;
-      DM.tdPaciente.SQL.Text := ('SELECT * FROM PACIENTE WHERE ID = :ID');
+      DM.tdPaciente.SQL.Text := ('SELECT * FROM PACIENTE WHERE ID LIKE :ID');
       DM.tdPaciente.ParamByName('ID').AsInteger := id;
       DM.tdPaciente.Open;
     end

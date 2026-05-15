@@ -26,6 +26,7 @@ type
     tdPacienteDATA_CADASTRO: TDateField;
     tdPacienteFiltroId: TFDQuery;
     tdPacienteFiltroNome: TFDQuery;
+    tdPacienteFiltroCpf: TFDQuery;
   private
     { Private declarations }
   public

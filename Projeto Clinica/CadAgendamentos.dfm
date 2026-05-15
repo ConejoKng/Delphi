@@ -29,7 +29,6 @@ object formCadAgendamentos: TformCadAgendamentos
     Height = 105
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 635
     object Label1: TLabel
       Left = 8
       Top = 57
@@ -50,7 +49,6 @@ object formCadAgendamentos: TformCadAgendamentos
       Height = 40
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 633
       object SpeedButton1: TSpeedButton
         Left = 504
         Top = 1

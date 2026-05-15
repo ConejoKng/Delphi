@@ -13,6 +13,7 @@ object alterarPessoas: TalterarPessoas
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poMainFormCenter
+  OnCreate = FormCreate
   TextHeight = 15
   object Panel2: TPanel
     Left = 0
@@ -21,9 +22,6 @@ object alterarPessoas: TalterarPessoas
     Height = 40
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitTop = 1
-    ExplicitWidth = 633
     object SpeedButton1: TSpeedButton
       Left = 548
       Top = 1
@@ -262,7 +260,6 @@ object alterarPessoas: TalterarPessoas
     Height = 49
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 540
     object Label1: TLabel
       Left = 8
       Top = 9
@@ -288,7 +285,7 @@ object alterarPessoas: TalterarPessoas
       Left = 16
       Top = 24
       Width = 81
-      Height = 81
+      Height = 105
       Caption = 'Buscar por'
       TabOrder = 0
     end
@@ -305,7 +302,7 @@ object alterarPessoas: TalterarPessoas
     end
     object buscarNome: TRadioButton
       Left = 24
-      Top = 76
+      Top = 75
       Width = 65
       Height = 17
       Caption = 'Nome'
@@ -340,19 +337,18 @@ object alterarPessoas: TalterarPessoas
           item
             Expanded = False
             FieldName = 'CPF'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NOME'
-            Width = 64
+            Width = 163
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'DATA_CADASTRO'
-            Width = 98
+            Width = 110
             Visible = True
           end>
       end
@@ -361,9 +357,31 @@ object alterarPessoas: TalterarPessoas
         Top = 23
         Width = 437
         Height = 23
+        CharCase = ecUpperCase
         TabOrder = 1
         OnChange = txtBuscaChange
       end
+      object txtBuscaCpf: TMaskEdit
+        Left = 12
+        Top = 23
+        Width = 436
+        Height = 23
+        EditMask = '###.###.###-##;0;_'
+        MaxLength = 14
+        TabOrder = 2
+        Text = ''
+        Visible = False
+        OnChange = txtBuscaCpfChange
+      end
+    end
+    object buscarCpf: TRadioButton
+      Left = 24
+      Top = 104
+      Width = 65
+      Height = 17
+      Caption = 'CPF'
+      TabOrder = 4
+      OnClick = buscarCpfClick
     end
   end
 end
