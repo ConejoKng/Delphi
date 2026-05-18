@@ -179,4 +179,38 @@ object DM: TDM
         Value = Null
       end>
   end
+  object updatePaciente: TFDQuery
+    Connection = Conexao
+    SQL.Strings = (
+      
+        'UPDATE PACIENTE SET NOME = :NOME, CPF = :CPF, CELULAR = :CELULAR' +
+        ' WHERE ID = :ID ')
+    Left = 40
+    Top = 272
+    ParamData = <
+      item
+        Name = 'NOME'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 80
+        Value = Null
+      end
+      item
+        Name = 'CPF'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 14
+      end
+      item
+        Name = 'CELULAR'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 16
+      end
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
 end

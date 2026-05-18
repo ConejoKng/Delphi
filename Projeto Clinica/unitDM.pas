@@ -27,6 +27,7 @@ type
     tdPacienteFiltroId: TFDQuery;
     tdPacienteFiltroNome: TFDQuery;
     tdPacienteFiltroCpf: TFDQuery;
+    updatePaciente: TFDQuery;
   private
     { Private declarations }
   public

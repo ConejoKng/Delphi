@@ -4,8 +4,8 @@ object alterarPessoas: TalterarPessoas
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'alterarPessoas'
-  ClientHeight = 601
-  ClientWidth = 589
+  ClientHeight = 330
+  ClientWidth = 871
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,12 +18,13 @@ object alterarPessoas: TalterarPessoas
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 589
+    Width = 871
     Height = 40
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 589
     object SpeedButton1: TSpeedButton
-      Left = 548
+      Left = 830
       Top = 1
       Width = 40
       Height = 38
@@ -256,10 +257,11 @@ object alterarPessoas: TalterarPessoas
   object Panel1: TPanel
     Left = 0
     Top = 40
-    Width = 589
+    Width = 871
     Height = 49
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 589
     object Label1: TLabel
       Left = 8
       Top = 9
@@ -276,10 +278,10 @@ object alterarPessoas: TalterarPessoas
   end
   object GroupBox1: TGroupBox
     Left = 8
-    Top = 95
+    Top = 97
     Width = 573
-    Height = 370
-    Caption = 'Qual Paciente Deseja Alterar: '
+    Height = 224
+    Caption = 'Qual Paciente Deseja Alterar'
     TabOrder = 2
     object RadioGroup1: TRadioGroup
       Left = 16
@@ -302,7 +304,7 @@ object alterarPessoas: TalterarPessoas
     end
     object buscarNome: TRadioButton
       Left = 24
-      Top = 75
+      Top = 74
       Width = 65
       Height = 17
       Caption = 'Nome'
@@ -313,21 +315,23 @@ object alterarPessoas: TalterarPessoas
       Left = 103
       Top = 24
       Width = 458
-      Height = 329
+      Height = 189
       Caption = 'Buscar por ID'
       TabOrder = 3
       object DBGrid1: TDBGrid
         Left = 12
         Top = 52
         Width = 437
-        Height = 261
+        Height = 125
         DataSource = DM.dsPaciente
+        ReadOnly = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -12
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
+        OnCellClick = DBGrid1CellClick
         Columns = <
           item
             Expanded = False
@@ -337,6 +341,7 @@ object alterarPessoas: TalterarPessoas
           item
             Expanded = False
             FieldName = 'CPF'
+            Width = 64
             Visible = True
           end
           item
@@ -382,6 +387,96 @@ object alterarPessoas: TalterarPessoas
       Caption = 'CPF'
       TabOrder = 4
       OnClick = buscarCpfClick
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 587
+    Top = 95
+    Width = 262
+    Height = 226
+    Caption = 'Alterar informa'#231#245'es do Paciente Selecionado'
+    TabOrder = 3
+    object Label2: TLabel
+      Left = 16
+      Top = 16
+      Width = 11
+      Height = 15
+      Caption = 'ID'
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 57
+      Width = 33
+      Height = 15
+      Caption = 'Nome'
+    end
+    object Label4: TLabel
+      Left = 16
+      Top = 100
+      Width = 21
+      Height = 15
+      Caption = 'CPF'
+    end
+    object Label5: TLabel
+      Left = 16
+      Top = 145
+      Width = 37
+      Height = 15
+      Caption = 'Celular'
+    end
+    object editId: TEdit
+      Left = 16
+      Top = 33
+      Width = 41
+      Height = 23
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object editNome: TEdit
+      Left = 16
+      Top = 73
+      Width = 225
+      Height = 23
+      CharCase = ecUpperCase
+      TabOrder = 1
+    end
+    object editCpf: TMaskEdit
+      Left = 16
+      Top = 116
+      Width = 225
+      Height = 23
+      EditMask = '###.###.###-##;0;_'
+      MaxLength = 14
+      TabOrder = 2
+      Text = ''
+    end
+    object editCelular: TMaskEdit
+      Left = 16
+      Top = 161
+      Width = 225
+      Height = 23
+      EditMask = '(##) #####-####;0;_'
+      MaxLength = 15
+      TabOrder = 3
+      Text = ''
+    end
+    object Button1: TButton
+      Left = 16
+      Top = 190
+      Width = 105
+      Height = 25
+      Caption = 'Gravar'
+      TabOrder = 4
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 136
+      Top = 190
+      Width = 107
+      Height = 25
+      Caption = 'Cancelar'
+      TabOrder = 5
+      OnClick = Button2Click
     end
   end
 end

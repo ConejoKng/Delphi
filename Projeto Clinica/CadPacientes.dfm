@@ -51,8 +51,6 @@ object formCadPacientes: TformCadPacientes
     Height = 105
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 24
     object Label1: TLabel
       Left = 16
       Top = 56
@@ -73,7 +71,6 @@ object formCadPacientes: TformCadPacientes
       Height = 40
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 909
       object SpeedButton1: TSpeedButton
         Left = 432
         Top = 1
@@ -336,12 +333,12 @@ object formCadPacientes: TformCadPacientes
   object txtCelular: TMaskEdit
     Left = 16
     Top = 248
-    Width = 157
+    Width = 153
     Height = 23
-    EditMask = '(##) #####-####;1;_'
+    EditMask = '(##) #####-####;0;_'
     MaxLength = 15
     TabOrder = 3
-    Text = '(  )      -    '
+    Text = ''
   end
   object txtData: TMaskEdit
     Left = 192

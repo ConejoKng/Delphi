@@ -14,6 +14,7 @@ object viewPessoas: TviewPessoas
   Font.Style = []
   Position = poMainFormCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
   object lblFiltro: TLabel
     Left = 264
@@ -29,9 +30,6 @@ object viewPessoas: TviewPessoas
     Height = 40
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 1
-    ExplicitTop = 1
-    ExplicitWidth = 447
     object SpeedButton1: TSpeedButton
       Left = 506
       Top = 1

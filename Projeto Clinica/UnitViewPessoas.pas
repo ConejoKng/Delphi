@@ -28,6 +28,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -103,6 +104,11 @@ end;
 procedure TviewPessoas.FormCreate(Sender: TObject);
 begin
   conexaoBanco;
+end;
+
+procedure TviewPessoas.FormDestroy(Sender: TObject);
+begin
+  DM.tdPaciente.Close;
 end;
 
 procedure TviewPessoas.lblFiltroClick(Sender: TObject);
